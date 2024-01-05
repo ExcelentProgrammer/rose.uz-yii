@@ -1,0 +1,1 @@
+a:11:{s:14:"click_trans_id";s:8:"14566027";s:10:"service_id";s:4:"8095";s:17:"merchant_trans_id";s:5:"19389";s:19:"merchant_prepare_id";s:0:"";s:6:"amount";s:3:"500";s:6:"action";s:1:"0";s:5:"error";s:1:"0";s:10:"error_note";s:2:"Ok";s:9:"sign_time";s:19:"2024-01-05 18:00:19";s:11:"sign_string";s:32:"bc3bc531f982d7045dc8b70d2e73e2b0";s:15:"click_paydoc_id";s:8:"16853761";}

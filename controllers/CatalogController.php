@@ -10,6 +10,7 @@ use app\models\Products;
 use app\models\TelegramBot;
 use Yii;
 use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 
@@ -88,6 +89,9 @@ class CatalogController extends Controller
     {
         $cacheOrder = Orders::getCachedOrder();
         $model = new Orders();
+
+
+
         if ($model->load(Yii::$app->request->post())) {
             $order = Yii::$app->request->post("Orders");
             $model->add_card = !empty($order['add_card']) ? 1 : 0;
@@ -108,14 +112,12 @@ class CatalogController extends Controller
     public function actionCheckout()
     {
         $cacheOrder = Orders::getCachedOrder();
-
         if ($cacheOrder['state'] < 2) {
             return $this->redirect(['cart']);
         }
 
 
         $model = new Orders();
-
 
         if (!empty($cacheOrder['id']))
             $model = $this->findOrderModel($cacheOrder['id']);
@@ -170,9 +172,6 @@ class CatalogController extends Controller
                 Orders::setCachedOrder($cacheOrder);
                 if (empty($cacheOrder['id']))
                     Dashboard::sendNotification("Поступил новый заказ. Пожалуйста проверьте админку! Номер заказа: {$model->id}");
-                $bot = new TelegramBot();
-                $bot->sendMessage(101361497, "Yangi buyurtma 📍\n\nBuyurtma: <a href='https://rose.uz/panel/orders/view?id=" . $cacheOrder['id'] . "\n\n'>#".$cacheOrder['id']."</a>", "html");
-                $bot->sendMessage(1769851684, "Yangi buyurtma 📍\n\nBuyurtma: <a href='https://rose.uz/panel/orders/view?id=" . $cacheOrder['id'] . "\n\n'>#".$cacheOrder['id']."</a>", "html");
 
                 return $this->redirect(['payment']);
             }
@@ -213,6 +212,21 @@ class CatalogController extends Controller
 
     public function actionComplete()
     {
+        if(!isset($_SESSION['limit'])){
+            $_SESSION['limit'] = 1;
+        }else{
+            $_SESSION['limit'] += 1;
+        }
+        $cacheOrder = Orders::getCachedOrder();
+
+
+        if($_SESSION['limit'] <= 2){
+            $bot = new TelegramBot();
+            $bot->sendMessage(101361497, "Yangi buyurtma 📍\n\nBuyurtma: <a href='https://rose.uz/panel/orders/view?id=" . $cacheOrder['id'] . "\n\n'>#".$cacheOrder['id']."</a>\nTo'lov: Naqd", "html");
+            $bot->sendMessage(1769851684, "Yangi buyurtma 📍\n\nBuyurtma: <a href='https://rose.uz/panel/orders/view?id=" . $cacheOrder['id'] . "\n\n'>#".$cacheOrder['id']."</a>\nTo'lov: Naqd", "html");
+        }
+
+
         return $this->render('complete');
     }
 

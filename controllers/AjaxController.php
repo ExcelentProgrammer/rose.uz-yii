@@ -54,6 +54,7 @@ class AjaxController extends Controller
         $response['alert'] = '<div class="alert-area"><div class="alert-success p10">Продукт <b>' . $product->name . '</b> добавлен в корзину</div></div>';
         $response['count'] = count($cachedOrder['items']);
         $response['total'] = Orders::getCachedOrderTotalPrice($cachedOrder);
+
         return $response;
     }
 

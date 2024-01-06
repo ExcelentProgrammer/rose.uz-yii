@@ -4,10 +4,10 @@ namespace app\models;
 
 class Click
 {
-    const SECRET_KEY = "n18bZLdWvexb5DCs0Q";
+    const SECRET_KEY = "nS@uwhxCI3Cf2htC7LlKC";
     const MERCHANT_ID = 6777;
-    const MERCHANT_USER_ID = 6955;
-    const SERVICE_ID = 8095;
+    const MERCHANT_USER_ID = 7715;
+    const SERVICE_ID = 8773;
 
     public $date = '';
     public $transAmount = '';

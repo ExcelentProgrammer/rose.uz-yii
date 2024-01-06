@@ -46,7 +46,7 @@ CSS;
                 <h2 class="title"><?= Html::encode($this->title) ?></h2>
             </div>
             <hr>
-            <div class="content" style="overflow: hidden;">
+            <div class="content" style="overflow: scroll;">
                 <?php if (Yii::$app->session->hasFlash('error')): ?>
                     <div class="alert alert-danger alert-dismissable">
                         <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>

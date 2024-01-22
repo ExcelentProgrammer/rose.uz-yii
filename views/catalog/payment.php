@@ -191,7 +191,7 @@ function pay(amount) {
   })
   widget.pay('auth', // или 'charge'
     { //options
-      publicId: 'test_api_00000000000000000000002', //id из личного кабинета
+      publicId: 'pk_f1065cbe7a8269393c35a17d6271f', //id из личного кабинета
       description: 'Оплата товаров в rose.uz', //назначение
       amount: amount, //сумма
       currency: 'UZS', //валюта

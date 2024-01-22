@@ -50,6 +50,8 @@ class Orders extends \yii\db\ActiveRecord
     const PAYMENT_PAYME = "PAYME";
     const PAYMENT_CLICK = "CLICK";
     const PAYMENT_PAYNET = "PAYNET";
+
+    const PAYMENT_CLOUDPAYMENTS = "CLOUDPAYMENTS";
     const PAYMENT_YANDEX = "YANDEX";
     const PAYMENT_WEB_MONEY = "WEB_MONEY";
     const PAYMENT_CASH = "CASH";

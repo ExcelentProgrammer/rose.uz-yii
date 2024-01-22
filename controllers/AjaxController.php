@@ -4,10 +4,9 @@ namespace app\controllers;
 
 use app\models\Bot;
 use app\models\Dashboard;
-use app\models\Rose;
-use app\models\TelegramBot;
 use app\models\Orders;
 use app\models\Products;
+use app\models\Rose;
 use Yii;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
@@ -171,15 +170,23 @@ class AjaxController extends Controller
         $response = [];
         Yii::$app->response->format = Response::FORMAT_JSON;
 
-        //$amount = Yii::$app->request->post('amount');
-        $order = Yii::$app->request->post('order');
-        $delivery = Yii::$app->request->post('delivery');
-        //$number = Yii::$app->request->post('phone');
-        //$description = Yii::$app->request->post('description');
-        //$email = Yii::$app->request->post('email');
-        $date = date('d-m-Y', strtotime($delivery));
-        Dashboard::sendNotification("Rose.uz #$order\n Оплата прошла успешно (PAYBOX)\nДата доставки: $date");
+        $request = Yii::$app->request;
+        $amount = $request->post('amount');
+        $invoiceId = $request->post('invoiceId');
+        $invoiceId = $request->post('invoiceId');
+        $currency = $request->post('currency');
 
+        $order = Orders::findOne($invoiceId); // Order
+
+        $order->state = Orders::STATE_PAID;
+        $order->is_paid = 1;
+        $order->payment_type = Orders::PAYMENT_CLOUDPAYMENTS;
+        $order->total_paid = $amount;
+        $order->save();
+
+        $order = $request->post('order');
+        $amount = number_format($amount, 2);
+        Dashboard::sendNotification("Rose.uz: Оплата через CLOUDPAYMENTS. ID заказа: {$order->id}. Сумма: {$amount} сум");
         $response['state'] = "OK";
         return $response;
     }

@@ -20,6 +20,7 @@ class PanelAsset extends AssetBundle
     public $css = [
         'https://fonts.googleapis.com/css?family=Open+Sans:400,600',
         'assets/panel/css/animate.min.css',
+        "assets/panel/js/bootstrap-notify.js",
         'assets/panel/css/light-bootstrap-dashboard.css?v=1.4.1',
         'font-awesome/css/font-awesome.min.css',
         'assets/panel/css/pe-icon-7-stroke.css',

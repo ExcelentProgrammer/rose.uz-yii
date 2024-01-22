@@ -113,33 +113,33 @@ foreach ($model->items as $item) {
       </button>
     </form>
 
-    <a
-      href="https://bill.qiwi.com/order/external/create.action?comm=<?= $commentUrl ?>&from=584814&summ=<?= $model->getOrderTotalUsdPrice() ?>&currency=USD"
-      type="submit" class="payment-btn">
-      <div class="payment-system payment-qiwi">
-        <small>Qiwi Кошелек</small>
-      </div>
-    </a>
+<!--    <a-->
+<!--      href="https://bill.qiwi.com/order/external/create.action?comm=--><?php //= $commentUrl ?><!--&from=584814&summ=--><?php //= $model->getOrderTotalUsdPrice() ?><!--&currency=USD"-->
+<!--      type="submit" class="payment-btn">-->
+<!--      <div class="payment-system payment-qiwi">-->
+<!--        <small>Qiwi Кошелек</small>-->
+<!--      </div>-->
+<!--    </a>-->
 
 
-      <button class="payment-btn paybox-btn">
+      <button id="payButton" class="payment-btn paybox-btn">
         <div class="payment-system payment-vmc">
           <small>Visa & Master Card</small>
         </div>
       </button>
 
-    <form method="POST" action="https://merchant.webmoney.ru/lmi/payment.asp" accept-charset="windows-1251">
-      <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="<?= $model->getOrderTotalUsdPrice() ?>">
-      <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата на сайте Rose.uz">
-      <input type="hidden" name="LMI_PAYMENT_NO" value="<?= $model->id ?>">
-      <input type="hidden" name="LMI_PAYEE_PURSE" value="Z118616263141">
-      <input type="hidden" name="order_id" value="<?= $model->id ?>">
-      <button type="submit" class="payment-btn">
-        <div class="payment-system payment-wm">
-          <small>Web Money</small>
-        </div>
-      </button>
-    </form>
+<!--    <form method="POST" action="https://merchant.webmoney.ru/lmi/payment.asp" accept-charset="windows-1251">-->
+<!--      <input type="hidden" name="LMI_PAYMENT_AMOUNT" value="--><?php //= $model->getOrderTotalUsdPrice() ?><!--">-->
+<!--      <input type="hidden" name="LMI_PAYMENT_DESC" value="Оплата на сайте Rose.uz">-->
+<!--      <input type="hidden" name="LMI_PAYMENT_NO" value="--><?php //= $model->id ?><!--">-->
+<!--      <input type="hidden" name="LMI_PAYEE_PURSE" value="Z118616263141">-->
+<!--      <input type="hidden" name="order_id" value="--><?php //= $model->id ?><!--">-->
+<!--      <button type="submit" class="payment-btn">-->
+<!--        <div class="payment-system payment-wm">-->
+<!--          <small>Web Money</small>-->
+<!--        </div>-->
+<!--      </button>-->
+<!--    </form>-->
 
     <a href="<?= Url::to(['catalog/complete']) ?>" type="button" class="payment-btn">
       <div class="payment-system payment-cash">
@@ -176,117 +176,58 @@ foreach ($model->items as $item) {
 </div>
 <?php endif; ?>
 
+    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
 
 
 <?php
-$js = <<< JS
-  (function (p, a, y, b, o, x) {
-  o = p.createElement(a);
-  x = p.getElementsByTagName(a)[0];
-  o.async = 1;
-  o.src = 'https://widget.paybox.money/v1/paybox/pbwidget.js?' + 1 * new Date();
-  x.parentNode.insertBefore(o, x);
-})(document, 'script');
-JS;
-//$descr
-$payboxCurrenc = "UZS";
+$js = <<<JS
+let btn = document.getElementById("payButton")
+//let language = navigator.language //or fix
+let language = "uz"
 
-switch ($currencyText) {
-    case "РУБ":
-        $payboxCurrenc = "RUB";
-        break;
-    
-    case "СУМ":
-        $payboxCurrenc = "UZS";
-        break;
-    
-    case "USD":
-        $payboxCurrenc = "USD";
-        break;
-}
-// if ($currencyText == "РУБ"){
-//     $payboxCurrenc = "RUB";
-// } else if ($currencyText == "USD") {
-//     $payboxCurrenc = $currencyText;
-// }
-
-$pay = <<< JS
 function pay(amount) {
-  var orderId = parseInt({$model->id})
-  console.log('ord', orderId)
-  console.log("CurrencyText", `{$currencyText}`)
-var data = {
-  token: 'irBJaWJSym46vFqtUYUcx4GmxZSKHySw',
-  payment: {
-    order: `{$model->id}`,
-    amount: amount,
-    currency: `{$payboxCurrenc}`,
-    language: 'ru',
-    description: `Заказ на сайтe Rose.uz`,
-    //test: 1,  // testing mode
-    options: {
-      callbacks: {
-        result_url: 'https://rose.uz/site/complete?system=pb'
-        //check_url: 'https://rose.uz/site/check'
-      },
+  var widget = new cp.CloudPayments({
+    language: language
+  })
+  widget.pay('auth', // или 'charge'
+    { //options
+      publicId: 'test_api_00000000000000000000002', //id из личного кабинета
+      description: 'Оплата товаров в rose.uz', //назначение
+      amount: amount, //сумма
+      currency: 'UZS', //валюта
+      accountId: '{$model->id}', //идентификатор плательщика (необязательно)
+      invoiceId: '{$model->id}', //номер заказа  (необязательно)
+      skin: "mini", //дизайн виджета (необязательно)
+      autoClose: 3
+    }, 
+    {
+      onSuccess: function(options) { // success
 
-      custom_params: {},
-      user: {
-        phone: '{$model->sender_phone}'
+            $.ajax({
+                url: "ajax/paybox-complete",
+                type: 'POST',
+                data: options
+            })
+            window.location.href = "https://rose.uz/site/complete?system=pb"
       },
-      /*receipt_positions: [
-        {
-          count: 2,
-          name: 'Коврик для мыши',
-          tax_type: 3,
-          price: amount
-        }
-      ]*/
-
+      onFail: function(reason, options) { // fail
+        alert("Payment error admin: +998 71 200-9800");
+      },
+      onComplete: function(paymentResult, options) { //Вызывается как только виджет получает от api.cloudpayments ответ с результатом транзакции.
+        //например вызов вашей аналитики Facebook Pixel
+      }
     }
-  },
-  successCallback: function (payment) {
-    //alert('Заказ номер ' + payment + ' успешно оплачен')
-    console.log('payment:', payment)
-    $.ajax({
-        url: "ajax/paybox-complete",
-        type: 'POST',
-        data: {
-            //phone: payment.options.user.phone,
-            //email: payment.options.user.email,
-            //amount: payment.amount,
-            //description: payment.description,
-            order: payment.order,
-            delivery: `{$model->delivery_date}`
-           
-        }
-    })
-    window.location.href = "https://rose.uz/site/complete?system=pb"
-  },
-  errorCallback: function (payment) {
-    alert('Произошла ошибка при попытке оплаты заказа номер ' + payment.order)
-    console.log('payment: ' + payment)
-  }
+  )
 }
 
-var paybox = new PayBox(data);
-paybox.create();
-}
-
-
-$('.paybox-btn').click(function() {
-  var amount = '{$model->getOrderTotalPrice()}'.replaceAll(" ", "")
-  amount = parseInt(amount)
-  console.log('ettttt', amount)
-  pay(amount)
+//window.addEventListener('load', pay)
+btn.addEventListener('click', ()=>{
+    var amount = '{$model->getOrderTotalPrice()}'.replaceAll(" ", "")
+    amount = parseInt(amount)
+    console.log('ettttt', amount)
+    pay(amount)
 })
-
-$('#one').click(function() {
-    
-  //window.location.href = "https://rose.uz/site/complete?system=pb"
-})
+ 
 JS;
 
-$this->registerJs($js); 
-
-$this->registerJs($pay); 
+$this->registerJs($js);

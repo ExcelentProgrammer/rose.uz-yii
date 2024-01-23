@@ -20,7 +20,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="right-sidebar">
       <?= HtmlPurifier::process($model->getText()) ?>
-
       <iframe
         src="https://yandex.ru/map-widget/v1/?um=constructor%3Acd6f4c1dc9d56f82504bf3a776cb82b2b013227b9324b7cc2df944d9646cd940&amp;source=constructor"
         width="100%" height="400" frameborder="0"></iframe>

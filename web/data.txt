@@ -1,1 +1,1 @@
-a:0:{}
+a:11:{s:14:"click_trans_id";s:10:"2450871806";s:10:"service_id";s:4:"8773";s:15:"click_paydoc_id";s:10:"3007736713";s:17:"merchant_trans_id";s:5:"19436";s:6:"amount";s:6:"115000";s:6:"action";s:1:"1";s:9:"sign_time";s:19:"2024-01-22 10:45:34";s:5:"error";s:1:"0";s:10:"error_note";s:7:"Success";s:19:"merchant_prepare_id";s:3:"471";s:11:"sign_string";s:32:"bd27f78c2eee73920337a988697de4c4";}

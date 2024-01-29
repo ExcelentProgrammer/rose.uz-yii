@@ -13,7 +13,7 @@ class Pages extends ActiveRecord
      *
      * @return string
      */
-    function getText()
+    function getText(): string
     {
         return $this->text_ru;
     }

@@ -176,7 +176,7 @@ foreach ($model->items as $item) {
 </div>
 <?php endif; ?>
 
-    <script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+    <script src="https://widget.cloudpayments.uz/bundles/cloudpayments"></script>
 
 
 <?php

@@ -11,7 +11,7 @@
 
 <button id="payButton">salom</button>
 
-<script src="https://widget.cloudpayments.ru/bundles/cloudpayments"></script>
+<script src="https://widget.cloudpayments.uz/bundles/cloudpayments"></script>
 
 <script>
     let btn = document.getElementById("payButton")

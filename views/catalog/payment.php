@@ -190,13 +190,13 @@ function pay(amount) {
     var receipt = {
         Items: [ 
             {
-                label: "Пластырь", // - обязательное поле
-                price: amount, // цена одного товара - обязательное поле
-                quantity: 1, // количество товара - обязательное поле
-                amount: amount, // Сумма товара (price x quantity) - обязательное поле
-                vat: 12, // Ставка НДС - обязательное поле,
-                spic: "123456", // код ИКПУ - обязательное поле
-                packageCode : "1234" // код упаковки - обязательное поле
+                label: "Пластырь",
+                price: amount, 
+                quantity: 1,
+                amount: amount,
+                vat: 12, 
+                spic: "123456",
+                packageCode : "1234" 
             }
         ],
     AdditionalReceiptInfos: ["Вы стали обладателем права на 1% cashback"],

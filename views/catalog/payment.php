@@ -186,8 +186,28 @@ let btn = document.getElementById("payButton")
 let language = "uz"
 
 function pay(amount) {
+    
+    var receipt = {
+        Items: [ 
+            {
+                label: "Пластырь", // - обязательное поле
+                price: 500, // цена одного товара - обязательное поле
+                quantity: 1, // количество товара - обязательное поле
+                amount: 500, // Сумма товара (price x quantity) - обязательное поле
+                vat: 12, // Ставка НДС - обязательное поле,
+                spic: "123456", // код ИКПУ - обязательное поле
+                packageCode : "1234" // код упаковки - обязательное поле
+            },
+        ],
+    AdditionalReceiptInfos: ["Вы стали обладателем права на 1% cashback"],
+        Amounts : {
+            Electronic: 1000
+        }
+    };
+    
   var widget = new cp.CloudPayments({
-    language: language
+    language: language,
+    CustomerReceipt: receipt
   })
   widget.pay('charge', // или 'charge'
     { //options

@@ -195,10 +195,14 @@ function pay(amount) {
       description: 'Оплата товаров в rose.uz', //назначение
       amount: amount, //сумма
 <<<<<<< HEAD
+<<<<<<< HEAD
       currency: 'USD', //валюта
 =======
       currency: 'UZS ', //валюта
 >>>>>>> 588ccc779494c2477d50fa5f44d92df49c5411d4
+=======
+      currency: 'UZS', //валюта
+>>>>>>> 26657257ec73cbfa22c1ef58b5c9b9102c6323c6
       accountId: '{$model->id}', //идентификатор плательщика (необязательно)
       invoiceId: '{$model->id}', //номер заказа  (необязательно)
       skin: "mini", //дизайн виджета (необязательно)

@@ -194,7 +194,11 @@ function pay(amount) {
       publicId: 'pk_f1065cbe7a8269393c35a17d6271f', //id из личного кабинета
       description: 'Оплата товаров в rose.uz', //назначение
       amount: amount, //сумма
+<<<<<<< HEAD
       currency: 'USD', //валюта
+=======
+      currency: 'UZS ', //валюта
+>>>>>>> 588ccc779494c2477d50fa5f44d92df49c5411d4
       accountId: '{$model->id}', //идентификатор плательщика (необязательно)
       invoiceId: '{$model->id}', //номер заказа  (необязательно)
       skin: "mini", //дизайн виджета (необязательно)

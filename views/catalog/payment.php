@@ -189,7 +189,7 @@ function pay(amount) {
   var widget = new cp.CloudPayments({
     language: language
   })
-  widget.pay('auth', // или 'charge'
+  widget.pay('charge', // или 'charge'
     { //options
       publicId: 'pk_f1065cbe7a8269393c35a17d6271f', //id из личного кабинета
       description: 'Оплата товаров в rose.uz', //назначение

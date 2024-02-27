@@ -42,7 +42,7 @@ class OctoService
             "octo_secret" => $this->token,
             "shop_transaction_id" => $trans_id,
             "auto_capture" => true,
-            "test" => true,
+            "test" => false,
             "init_time" => "2018-03-30 11:22:33",
             "total_sum" => $amount,
             "currency" => "UZS",

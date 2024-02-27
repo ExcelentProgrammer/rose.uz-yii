@@ -50,8 +50,8 @@ class Dashboard extends Model
     public static function sendNotification($text)
     {
         $bot = new TelegramBot();
-        $bot->sendMessage(1769851684, $text);
-        return $bot->sendMessage(101361497, $text);
+        return $bot->sendMessage(1769851684, $text);
+//        return $bot->sendMessage(101361497, $text);
     }
 
     public static function cropImage($file, $savePath, $width, $height)

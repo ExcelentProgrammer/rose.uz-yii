@@ -4,7 +4,7 @@ return [
   'class' => 'yii\db\Connection',
   'dsn' => 'mysql:host=localhost;dbname=rose_db',
   'username' => 'root',
-  'password' => 'Everest@2018',
+  'password' => 'root',
   'charset' => 'utf8',
 
 //    'enableSchemaCache' => true,

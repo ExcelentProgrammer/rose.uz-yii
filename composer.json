@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "kartik-v/yii2-widget-datepicker": "@dev",
-        "2amigos/yii2-ckeditor-widget" : "~2.1"
+        "2amigos/yii2-ckeditor-widget" : "~2.1",
+        "ext-curl": "*",
+        "ext-json": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

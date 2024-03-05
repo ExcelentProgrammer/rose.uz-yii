@@ -42,15 +42,15 @@ Saytdagi narxlar va mahsulotlar buyurtmalar uchun tayyor! Buyurtmalar
         <div id="layerslider" style="width:100%;height:500px;" class="main-banner">
             <div class="ls-slide" data-ls="slidedelay:4000;timeshift:-1000;">
                 <img src="<?= Yii::$app->homeUrl ?>img/rose_bg.jpg" class="ls-bg" alt="Slide background"/>
+                <?= $message_3 ?>
+            </div>
+            <div class="ls-slide" data-ls="slidedelay:4000;timeshift:-1000;">
+                <img src="<?= Yii::$app->homeUrl ?>img/rose_bg.jpg" class="ls-bg" alt="Slide background"/>
                 <?= $message_1 ?>
             </div>
             <div class="ls-slide" data-ls="slidedelay:4000;timeshift:-1000;">
                 <img src="<?= Yii::$app->homeUrl ?>img/rose_bg.jpg" class="ls-bg" alt="Slide background"/>
                 <?= $message_2 ?>
-            </div>
-            <div class="ls-slide" data-ls="slidedelay:4000;timeshift:-1000;">
-                <img src="<?= Yii::$app->homeUrl ?>img/rose_bg.jpg" class="ls-bg" alt="Slide background"/>
-                <?= $message_3 ?>
             </div>
         </div>
     </div>

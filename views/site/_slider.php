@@ -17,25 +17,25 @@
         }
     </style>
     <?php
-    $html = '<div class="ls-l l0" style="top:10px;left:0;font-size:20px; width: 100%; text-align: center; font-family: Lato, \'Open Sans\', sans-serif; padding-top: 20px; padding-bottom: 20px; font-weight:normal;color:white; background: #bf2338; margin:0;"><h1 class="banner-text">%s</h1></div>';
-    $message_1 = sprintf($html,
+    $html = '<div class="ls-l l0" style="top:10px;left:0;font-size:20px; width: 100%; text-align: center; font-family: Lato, \'Open Sans\', sans-serif; padding-top: 20px; padding-bottom: 20px; font-weight:normal;color:white; background: #bf2338; margin:0;"><h1 class="banner-text">jscorp_text</h1></div>';
+    $message_1 = str_replace("jscorp_text",
         "Diqqat! 8 mart uchun buyurtmalar qabul 
 qilinmoqda! Saytagi narxlar va maxsulotlar buyurtmalar uchun tayyor! Buyurtmalar
 6 mart kuni 17:00 gacha qabul qilinadi! Saytga buyurtma berish chog'ida savolar
  bulsa +998977031020 raqamlariga telegram yoki whatsapp orqali murojaat qilishingiz mumkin!
-  Xurmat bilan Rose.uz jamoasi!");
-    $message_2 = sprintf($html,
+  Xurmat bilan Rose.uz jamoasi!", $html);
+    $message_2 = str_replace("jscrop_text",
         "Диққат! 8 март учун буюртмалар қабул қилинмоқда! 
 Saytdagi narxlar va mahsulotlar buyurtmalar uchun tayyor! Buyurtmalar 
 6 mart kuni 17:00 gacha qabul qilinadi! Saytda buyurtma berish chog'ida
  savollar bo'lsa +998977031020 raqamlariga telegram yoki whatsapp orqali
-  murojaat qilishingiz mumkin! Hurmat bilan, Rose.uz jamoasi!");
-    $message_3 = sprintf($html,
+  murojaat qilishingiz mumkin! Hurmat bilan, Rose.uz jamoasi!", $html);
+    $message_3 = str_replace("jscorp_text",
         "Внимание! Принимаем предзаказы ко дню 8 марта! Весь ассортимент 
 и цены на продукцию актуальны до 12 часов дня 5 марта. В случае возникновения 
 проблем во время бронирования просьба обращаться на телеграм или ватсапп +998977031020.
- С уважением, Ваш Rose.uz"
-    );
+ С уважением, Ваш Rose.uz",
+        $html);
     ?>
 
     <div class="slider">

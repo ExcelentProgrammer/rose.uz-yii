@@ -17,26 +17,27 @@
         }
     </style>
     <?php
-    $html = ' <div class="ls-l l0" style="top:10px;left:0;font-size:20px; width: 100%; text-align: center; font-family: Lato, \'Open Sans\', sans-serif; padding-top: 20px; padding-bottom: 20px; font-weight:normal;color:white; background: #bf2338; margin:0;"><h1 class="banner-text"">%s</h1></div>';
+    $html = '<div class="ls-l l0" style="top:10px;left:0;font-size:20px; width: 100%; text-align: center; font-family: Lato, \'Open Sans\', sans-serif; padding-top: 20px; padding-bottom: 20px; font-weight:normal;color:white; background: #bf2338; margin:0;"><h1 class="banner-text">%s</h1></div>';
     $message_1 = sprintf($html,
         "Diqqat! 8 mart uchun buyurtmalar qabul 
-    qilinmoqda! Saytagi narxlar va maxsulotlar buyurtmalar uchun tayyor! Buyurtmal
-    ar 6 mart kuni 17:00 gacha qabul qilinadi! Saytga buyurtma berish chog'ida savolar
-     bulsa +998977031020 raqamlariga telegram yoki whatsapp orqali murojja't qilishingiz mumkin!
-      Xurmat bilan Rose.uz jamoasi!");
+qilinmoqda! Saytagi narxlar va maxsulotlar buyurtmalar uchun tayyor! Buyurtmalar
+6 mart kuni 17:00 gacha qabul qilinadi! Saytga buyurtma berish chog'ida savolar
+ bulsa +998977031020 raqamlariga telegram yoki whatsapp orqali murojaat qilishingiz mumkin!
+  Xurmat bilan Rose.uz jamoasi!");
     $message_2 = sprintf($html,
         "Диққат! 8 март учун буюртмалар қабул қилинмоқда! 
-    Сайтдаги нархлар ва махсулотлар буюртмалар учун тайёр! Буюртмалар 
-    6 март куни 17:00 гача қабул қилинади! Сайтда буюртма бериш чоғида
-     саволлар бўлса +998977031020 рақамларига telegram ёки  wats app орқали
-      мурожаат қилишингиз мумкин! Xурмат билан, Rose.uz жамоаси!");
+Saytdagi narxlar va mahsulotlar buyurtmalar uchun tayyor! Buyurtmalar 
+6 mart kuni 17:00 gacha qabul qilinadi! Saytda buyurtma berish chog'ida
+ savollar bo'lsa +998977031020 raqamlariga telegram yoki whatsapp orqali
+  murojaat qilishingiz mumkin! Hurmat bilan, Rose.uz jamoasi!");
     $message_3 = sprintf($html,
         "Внимание! Принимаем предзаказы ко дню 8 марта! Весь ассортимент 
-    и цены на продукцию актуальны до 12 часов дня 5 марта. В случае возникновения 
-    проблем во время бронирования просьба обращаться на телеграм или ватсапп +998977031020.
-     С уважением, Ваш Rose.uz"
+и цены на продукцию актуальны до 12 часов дня 5 марта. В случае возникновения 
+проблем во время бронирования просьба обращаться на телеграм или ватсапп +998977031020.
+ С уважением, Ваш Rose.uz"
     );
     ?>
+
     <div class="slider">
         <div id="layerslider" style="width:100%;height:500px;" class="main-banner">
             <div class="ls-slide" data-ls="slidedelay:4000;timeshift:-1000;">

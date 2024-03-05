@@ -21,18 +21,18 @@
     $message_1 = str_replace("jscorp_text",
         "Diqqat! 8 mart uchun buyurtmalar qabul 
 qilinmoqda! Saytagi narxlar va maxsulotlar buyurtmalar uchun tayyor! Buyurtmalar
-6 mart kuni 17:00 gacha qabul qilinadi! Saytga buyurtma berish chog'ida savolar
+6 mart kuni 23:59 gacha qabul qilinadi! Saytga buyurtma berish chog'ida savolar
  bulsa +998977031020 raqamlariga telegram yoki whatsapp orqali murojaat qilishingiz mumkin!
   Xurmat bilan Rose.uz jamoasi!", $html);
     $message_2 = str_replace("jscorp_text",
         "Диққат! 8 март учун буюртмалар қабул қилинмоқда! 
 Saytdagi narxlar va mahsulotlar buyurtmalar uchun tayyor! Buyurtmalar 
-6 mart kuni 17:00 gacha qabul qilinadi! Saytda buyurtma berish chog'ida
+6 mart kuni 23:59 gacha qabul qilinadi! Saytda buyurtma berish chog'ida
  savollar bo'lsa +998977031020 raqamlariga telegram yoki whatsapp orqali
   murojaat qilishingiz mumkin! Hurmat bilan, Rose.uz jamoasi!", $html);
     $message_3 = str_replace("jscorp_text",
         "Внимание! Принимаем предзаказы ко дню 8 марта! Весь ассортимент 
-и цены на продукцию актуальны до 12 часов дня 5 марта. В случае возникновения 
+и цены на продукцию актуальны до 23:59 часов дня 6 марта. В случае возникновения 
 проблем во время бронирования просьба обращаться на телеграм или ватсапп +998977031020.
  С уважением, Ваш Rose.uz",
         $html);

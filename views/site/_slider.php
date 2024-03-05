@@ -24,7 +24,7 @@ qilinmoqda! Saytagi narxlar va maxsulotlar buyurtmalar uchun tayyor! Buyurtmalar
 6 mart kuni 17:00 gacha qabul qilinadi! Saytga buyurtma berish chog'ida savolar
  bulsa +998977031020 raqamlariga telegram yoki whatsapp orqali murojaat qilishingiz mumkin!
   Xurmat bilan Rose.uz jamoasi!", $html);
-    $message_2 = str_replace("jscrop_text",
+    $message_2 = str_replace("jscorp_text",
         "Диққат! 8 март учун буюртмалар қабул қилинмоқда! 
 Saytdagi narxlar va mahsulotlar buyurtmalar uchun tayyor! Buyurtmalar 
 6 mart kuni 17:00 gacha qabul qilinadi! Saytda buyurtma berish chog'ida

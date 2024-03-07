@@ -41,11 +41,16 @@ class OctoController extends Controller
     function actionCheck()
     {
         $data = json_decode(Yii::$app->request->getRawBody());
-        $order = Orders::findOne(['id' => $data->shop_transaction_id]);
-        $amount = $data->total_sum;
-        $this->service->completeOrder($order, $amount);
+        if ($data->status == "succeeded") {
+            $order = Orders::findOne(['id' => $data->shop_transaction_id]);
+            $amount = $data->total_sum;
+            $this->service->completeOrder($order, $amount);
+            return [
+                'accept_status' => 'capture'
+            ];
+        }
         return [
-            'accept_status' => 'capture'
+            "accept_status" => "cancel"
         ];
     }
 

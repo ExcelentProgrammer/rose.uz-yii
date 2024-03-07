@@ -69,6 +69,7 @@ class OrderSearch extends Orders
             'system_id' => $this->system_id,
             'date' => $this->date,
             'delivery_date' => $this->delivery_date,
+            'is_deleted' => $this->is_deleted,
 //            'delivery_price' => $this->delivery_price,
             'total_paid' => $this->total_paid,
             'know_address' => $this->know_address,
